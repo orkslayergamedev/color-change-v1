@@ -41,6 +41,39 @@ def draw_text(text: str, size: int, col: list, x: int, y: int) -> None:
     screen.blit(text_surface, text_rect)
 
 
+def col_change_flash(color: list, direction: list) -> None:
+    """
+    This function changes an RGB list in a way that we achieve a cool flashing effect.
+    This looks good on black background. For transparency we should use the alpha value.
+    :param color: List of RGB values.
+    :param direction: List of color change direction values (-1, 0, or 1).
+    :return: None
+    """
+    for i in range(3):
+        color[i] += col_spd * direction[i]
+        if color[i] >= maximum:
+            color[i] = minimum
+        elif color[i] <= minimum:
+            color[i] = maximum
+
+
+def col_change_breathe(color: list, direction: list) -> None:
+    """
+    This function changes an RGB list in a way that we achieve nice breathing effect.
+    :param color: List of RGB values.
+    :param direction: List of color change direction values (-1, 0, or 1).
+    :return: None
+    """
+    for i in range(3):
+        color[i] += col_spd * direction[i]
+        if color[i] >= maximum or color[i] <= minimum:
+            direction[i] *= -1
+        if color[i] >= maximum:
+            color[i] = maximum
+        elif color[i] <= minimum:
+            color[i] = minimum
+
+
 # main loop
 while run:
     # events
@@ -49,7 +82,9 @@ while run:
             run = False
 
     # text displaying
-    draw_text("just some text", 40, white, W / 2, H / 2)
+    draw_text("just some text", 40, def_col, W / 2, H / 2)
+    # col_change_flash(def_col, col_dir)
+    col_change_breathe(def_col, col_dir)
 
     # screen update
     clock.tick()
