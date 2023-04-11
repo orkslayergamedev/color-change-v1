@@ -5,7 +5,6 @@ I also plan making a downloadable library so anyone can use this effect in less 
 
 ![img.png](readme_pics/img.png)
 ---
----
 
 First steps
 =====================
@@ -14,7 +13,6 @@ On Windows, just open your terminal (Win+R -> cmd) and type "pip install pygame"
 
 ![img_1.png](readme_pics/img_1.png)
 ---
----
 
 Window setup
 =====================
@@ -22,7 +20,6 @@ This is not a 101 Pygame tutorial, so I won't get into details now.
 The following is probably the most easiest way to set up a window in with Pygame.
 
 ![img_2.png](readme_pics/img_2.png)
----
 ---
 
 Text displaying
@@ -36,7 +33,6 @@ Don't forget to call the function in the run loop!
 
 ![img_4.png](readme_pics/img_4.png)
 ---
----
 
 Flashing function
 =====================
@@ -46,14 +42,12 @@ When we reach minimum (or either maximum) the function sets back the value to th
 
 ![img_5.png](readme_pics/img_5.png)
 ---
----
 
 Breathing function
 =====================
 Works pretty much almost the same like the flashing function, the difference is that when we reach a limit, either the minimum or maximum value, we switch the color change direction by multiplying it with -1.
 
 ![img_6.png](readme_pics/img_6.png)
----
 ---
 
 Results
@@ -65,7 +59,6 @@ When we call these functions like below, we get the same results that I showed i
 It's hard to see the result as an image, but I put it here anyways.
 ![img_8.png](readme_pics/img_8.png)
 ---
----
 
 Notes
 =====================
@@ -76,5 +69,4 @@ I also changed some variable names, they alter a bit from the video, but makes m
 
 Good luck, keep creating!
 > Adrian from Ork Slayer Gamedev
----
 ---
