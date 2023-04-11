@@ -16,7 +16,7 @@ clock = pygame.time.Clock()
 
 # color variables
 black = (0, 0, 0)
-white = (0, 0, 0)
+white = (255, 255, 255)
 col_spd = 1
 col_dir = [1, 1, 1]
 def_col = [100, 100, 100]
@@ -47,6 +47,9 @@ while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+
+    # text displaying
+    draw_text("just some text", 40, white, W / 2, H / 2)
 
     # screen update
     clock.tick()
