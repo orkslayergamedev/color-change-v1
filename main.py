@@ -18,10 +18,15 @@ clock = pygame.time.Clock()
 black = (0, 0, 0)
 white = (255, 255, 255)
 col_spd = 1
-col_dir = [1, 1, 1]
-def_col = [100, 100, 100]
-minimum = 100
-maximum = 200
+
+col_dir_flash = [1, 1, 1]
+def_col_flash = [100, 100, 100]
+
+col_dir_breathe = [1, 1, 1]
+def_col_breathe = [100, 100, 100]
+
+minimum = 0
+maximum = 255
 
 
 def draw_text(text: str, size: int, col: list, x: int, y: int) -> None:
@@ -36,7 +41,7 @@ def draw_text(text: str, size: int, col: list, x: int, y: int) -> None:
     """
     font_type = pygame.font.get_default_font()
     font_object = pygame.font.Font(font_type, size)
-    text_surface = font_object.render(text, True, col)
+    text_surface = font_object.render(text, False, col)
     text_rect = text_surface.get_rect(center=(x, y))
     screen.blit(text_surface, text_rect)
 
@@ -81,10 +86,13 @@ while run:
         if event.type == pygame.QUIT:
             run = False
 
+    # color update
+    col_change_flash(def_col_flash, col_dir_flash)
+    col_change_breathe(def_col_breathe, col_dir_breathe)
+
     # text displaying
-    draw_text("just some text", 40, def_col, W / 2, H / 2)
-    # col_change_flash(def_col, col_dir)
-    col_change_breathe(def_col, col_dir)
+    draw_text("this text is flashing", 40, def_col_flash, W / 2, 200)
+    draw_text("this text is breathing", 40, def_col_breathe, W / 2, 400)
 
     # screen update
     clock.tick()
